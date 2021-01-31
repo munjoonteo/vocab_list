@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Vocabulary List",
+  "name": "Japanese Vocabulary List Creator",
   "icons": [
     {
       "src": "favicon.ico",
