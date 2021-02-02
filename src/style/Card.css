@@ -1,0 +1,26 @@
+.card {
+  border: 1px solid #098023;
+  border-radius: 20px;
+  padding: 1.5vh;
+  margin: 0vh 2vh 2.5vh 0vh;
+}
+
+.reading {
+  font-size: 20px;
+  color: #808080;
+}
+
+.word {
+  font-size: 30px;
+  font-weight: 700;
+  padding-bottom: 0.5vh;
+}
+
+.def {
+  font-size: 24px;
+  padding: 1vh 0vh 1vh;
+}
+
+.index {
+  color: #808080;
+}

@@ -9,7 +9,6 @@ function App() {
   const [results, setResults] = React.useState(null);
 
   async function getWords() {
-    console.log(word);
     return await axios
       .get(
         `https://cors-anywhere.herokuapp.com/https://jisho.org/api/v1/search/words?keyword=${word}`

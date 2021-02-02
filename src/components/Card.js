@@ -1,14 +1,23 @@
 import React from "react";
+import "../style/Card.css";
 
 function Card({ word }) {
-  console.log(word);
   return (
-    <div>
-      <div>{word.japanese[0].reading}</div>
-      <div>{word.japanese[0].word}</div>
+    <div className="card">
+      <div className="reading">
+        {!word.japanese[0].word ? null : word.japanese[0].reading}
+      </div>
+      <div className="word">
+        {!word.japanese[0].word
+          ? word.japanese[0].reading
+          : word.japanese[0].word}
+      </div>
       <div>
-        {word.senses[0].english_definitions.map(def => (
-          <div>{def}</div>
+        {word.senses.map((sense, index) => (
+          <div className="def" key={index}>
+            <span className="index">{index + 1}. </span>
+            <span>{sense.english_definitions.join("; ")}</span>
+          </div>
         ))}
       </div>
     </div>

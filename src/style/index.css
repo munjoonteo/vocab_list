@@ -3,4 +3,5 @@
 body {
   font-family: "Prompt", sans-serif;
   background-color: #fbfefa;
+  overflow: hidden;
 }

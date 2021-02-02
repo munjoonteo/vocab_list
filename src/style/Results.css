@@ -1,3 +1,8 @@
+.words {
+  width: 50%;
+  height: 90%;
+}
+
 .section-title {
   font-weight: 500;
   font-size: 40px;
@@ -7,4 +12,20 @@
   font-size: 32px;
   color: #6e6e6e;
   padding: 5vw;
+}
+
+.results {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 67vh;
+}
+
+::-webkit-scrollbar-track ::-moz-scrollbar-track {
+  border-radius: 10px;
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb ::-moz-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #37c256;
 }
