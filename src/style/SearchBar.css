@@ -1,0 +1,10 @@
+input {
+  padding: 1.5vh;
+  font-family: "Prompt", sans-serif;
+  font-size: 24px;
+  width: 80%;
+  border: 1px solid #098023;
+  border-radius: 30px;
+  color: #8f8f8f;
+  outline: none;
+}

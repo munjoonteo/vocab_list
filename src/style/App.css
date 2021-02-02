@@ -1,0 +1,47 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.author {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+  padding: 1.5vh;
+}
+
+a {
+  color: #1a7997;
+  margin-left: 0.5rem;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 48px;
+  padding: 0vw 2vw 0vw;
+}
+
+.search {
+  display: flex;
+  margin: 2vw;
+}
+
+.search-button {
+  padding: 1.5vh;
+  font-size: 24px;
+  border: 1px solid #098023;
+  border-left-style: hidden;
+  border-radius: 30px;
+  outline: none;
+}
+
+.middle {
+  padding: 0vw 2vw 0vw;
+}
+
+.footer {
+  position: fixed;
+  padding: 2vw;
+  bottom: 0px;
+  right: 0px;
+}
