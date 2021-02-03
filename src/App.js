@@ -1,14 +1,17 @@
-import React from "react";
+import { React, useState, useCallback, useEffect } from "react";
 import axios from "axios";
 import "./style/App.css";
 import SearchBar from "./components/SearchBar";
 import Results from "./components/Results";
+import Pic from "./static/search.png";
 
 function App() {
-  const [word, setWord] = React.useState("");
-  const [results, setResults] = React.useState(null);
+  const [word, setWord] = useState("");
+  const [results, setResults] = useState(null);
 
-  async function getWords() {
+  // Memoise getWords so that it is not recreated every single render
+  const getWords = useCallback(async () => {
+    if (word === "") return;
     return await axios
       .get(
         `https://cors-anywhere.herokuapp.com/https://jisho.org/api/v1/search/words?keyword=${word}`
@@ -19,11 +22,22 @@ function App() {
       .catch(err => {
         console.log(err);
       });
-  }
+  }, [word]);
 
   async function updateInput(input) {
     setWord(input);
   }
+
+  // Support for Enter key
+  useEffect(() => {
+    const listener = event => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") getWords();
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, [getWords]);
 
   return (
     <div className="App">
@@ -32,9 +46,10 @@ function App() {
       </div>
       <div className="title">Japanese Vocabulary List Creator</div>
       <div className="search">
-        <SearchBar keyword={word} setKeyword={updateInput} />
+        <SearchBar keyword={word} onChange={updateInput} />
         <div className="search-button" onClick={getWords}>
-          Search
+          <div className="search-text">Search</div>
+          <img src={Pic} alt="" height="60px" width="60px" />
         </div>
       </div>
       <div className="middle">

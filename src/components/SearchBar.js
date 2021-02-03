@@ -1,12 +1,12 @@
 import React from "react";
 import "../style/SearchBar.css";
 
-function SearchBar({ keyword, setKeyword }) {
+function SearchBar({ keyword, onChange }) {
   return (
     <input
       value={keyword}
       placeholder="Enter a word or phrase..."
-      onChange={e => setKeyword(e.target.value)}
+      onChange={e => onChange(e.target.value)}
     />
   );
 }

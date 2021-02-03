@@ -24,15 +24,24 @@ a {
 .search {
   display: flex;
   margin: 2vw;
+  background-color: white;
+  user-select: none;
 }
 
 .search-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 1.5vh;
   font-size: 24px;
   border: 1px solid #098023;
   border-left-style: hidden;
-  border-radius: 30px;
+  border-radius: 0px 30px 30px 0px;
   outline: none;
+}
+
+.search-text {
+  margin: 0vw 1vw 0vw;
 }
 
 .middle {
