@@ -41,7 +41,7 @@ function App() {
   }, [getWords]);
 
   const addToList = async newWord => {
-    setWordList([...wordList, newWord]);
+    if (!wordList.includes(newWord)) setWordList([...wordList, newWord]);
   };
 
   return (
@@ -59,7 +59,7 @@ function App() {
       </div>
       <div className="middle">
         <div className="left">
-          <Results results={results} />
+          <Results results={results} onAdd={addToList} />
         </div>
         <div className="right">
           <button className="buttons list-button">

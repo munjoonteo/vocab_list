@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import "../style/Results.css";
 
-function Words({ results }) {
+function Words({ results, onAdd }) {
   if (results === null) {
     return (
       <div className="words">
@@ -27,7 +27,7 @@ function Words({ results }) {
         <div className="section-title">Results</div>
         <div className="results">
           {results.data.data.map((word, index) => (
-            <Card word={word} key={index} />
+            <Card word={word} onAdd={onAdd} key={index} />
           ))}
         </div>
       </div>

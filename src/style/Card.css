@@ -1,8 +1,20 @@
 .card {
+  display: flex;
   border: 1px solid #098023;
   border-radius: 20px;
-  padding: 1.5vh;
+  padding: 2vh 3vh 2vh;
   margin: 0vh 2vh 2.5vh 0vh;
+}
+
+.card-left {
+  width: 50%;
+}
+
+.card-right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 50%;
 }
 
 .reading {
@@ -13,14 +25,20 @@
 .word {
   font-size: 30px;
   font-weight: 700;
-  padding-bottom: 0.5vh;
 }
 
 .def {
   font-size: 24px;
-  padding: 1vh 0vh 1vh;
+  padding-top: 1.5vh;
 }
 
 .index {
   color: #808080;
+}
+
+.add-text {
+  font-size: 24px;
+  font-weight: 500;
+  color: #8a8a8a;
+  padding-right: 3vh;
 }

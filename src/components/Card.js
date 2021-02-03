@@ -1,27 +1,40 @@
 import React from "react";
 import "../style/Card.css";
 
-function Card({ word }) {
+function Card({ word, onAdd }) {
   return (
     <div className="card">
-      <div className="reading">
-        {!word.japanese[0].word ? null : word.japanese[0].reading}
+      <div className="card-left">
+        <div className="reading">
+          {!word.japanese[0].word ? null : word.japanese[0].reading}
+        </div>
+        <div className="word">
+          {!word.japanese[0].word
+            ? word.japanese[0].reading
+            : word.japanese[0].word}
+        </div>
+        <div>
+          {word.senses.map((sense, index) => (
+            <div className="def" key={index}>
+              <span className="index">{index + 1}. </span>
+              <span>{sense.english_definitions.join("; ")}</span>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="word">
-        {!word.japanese[0].word
-          ? word.japanese[0].reading
-          : word.japanese[0].word}
-      </div>
-      <div>
-        {word.senses.map((sense, index) => (
-          <div className="def" key={index}>
-            <span className="index">{index + 1}. </span>
-            <span>{sense.english_definitions.join("; ")}</span>
-          </div>
-        ))}
-      </div>
-      <div className="add-button">
-        <div>Add to List</div>
+      <div className="card-right">
+        <div
+          className="add-button"
+          onClick={e =>
+            onAdd({
+              expression: word.japanese[0].word,
+              reading: word.japanese[0].reading,
+              meaning: word.senses[0].english_definitions.join("; "),
+            })
+          }
+        >
+          <div className="add-text">Add to List</div>
+        </div>
       </div>
     </div>
   );
