@@ -11,10 +11,12 @@ function Words({ results }) {
       </div>
     );
   } else if (results.data.data.length === 0) {
-    <div className="words">
-      <div className="section-title">Results</div>
-      <div className="nothing">{`No results found :(`}</div>
-    </div>;
+    return (
+      <div className="words">
+        <div className="section-title">Results</div>
+        <div className="nothing">{`No results found :(`}</div>
+      </div>
+    );
   } else {
     return (
       <div className="words">
