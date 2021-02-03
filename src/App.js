@@ -57,11 +57,10 @@ function App() {
   };
 
   const download = () => {
-    console.log(wordList);
     let element = document.createElement("a");
     element.setAttribute(
       "href",
-      "data:text/plain;charset=utf-8" + encodeURIComponent(createText())
+      "data:text/plain;charset=utf-8," + encodeURIComponent(createText())
     );
     element.setAttribute("download", filename);
 
