@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/Card.css";
+import Add from "../static/add.png";
 
 function Card({ word, onAdd }) {
   return (
@@ -33,6 +34,7 @@ function Card({ word, onAdd }) {
             })
           }
         >
+          <img src={Add} alt="" height="20px" width="20px" />
           <div className="add-text">Add to List</div>
         </div>
       </div>

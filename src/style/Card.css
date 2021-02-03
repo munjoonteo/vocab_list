@@ -36,9 +36,15 @@
   color: #808080;
 }
 
+.add-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .add-text {
   font-size: 24px;
   font-weight: 500;
   color: #8a8a8a;
-  padding-right: 3vh;
+  padding: 0vh 3vh 0vh 1vh;
 }
