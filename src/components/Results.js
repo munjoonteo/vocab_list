@@ -7,14 +7,18 @@ function Words({ results }) {
     return (
       <div className="words">
         <div className="section-title">Results</div>
-        <div className="nothing">{`Search for a word!`}</div>
+        <div className="no-words">
+          <div className="nothing">{`Search for a word!`}</div>
+        </div>
       </div>
     );
   } else if (results.data.data.length === 0) {
     return (
       <div className="words">
         <div className="section-title">Results</div>
-        <div className="nothing">{`No results found :(`}</div>
+        <div className="no-words">
+          <div className="nothing">{`No results found :(`}</div>
+        </div>
       </div>
     );
   } else {

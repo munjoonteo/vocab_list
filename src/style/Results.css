@@ -2,6 +2,14 @@
   height: 90%;
 }
 
+.no-words {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .section-title {
   font-weight: 500;
   font-size: 40px;
@@ -10,7 +18,6 @@
 .nothing {
   font-size: 32px;
   color: #6e6e6e;
-  padding: 5vw;
 }
 
 .results {

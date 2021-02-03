@@ -20,6 +20,9 @@ function Card({ word }) {
           </div>
         ))}
       </div>
+      <div className="add-button">
+        <div>Add to List</div>
+      </div>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import Pic from "./static/search.png";
 function App() {
   const [word, setWord] = useState("");
   const [results, setResults] = useState(null);
+  const [wordList, setWordList] = useState([]);
 
   // Memoise getWords so that it is not recreated every single render
   const getWords = useCallback(async () => {
@@ -24,9 +25,9 @@ function App() {
       });
   }, [word]);
 
-  async function updateInput(input) {
+  const updateInput = async input => {
     setWord(input);
-  }
+  };
 
   // Support for Enter key
   useEffect(() => {
@@ -38,6 +39,10 @@ function App() {
       document.removeEventListener("keydown", listener);
     };
   }, [getWords]);
+
+  const addToList = async newWord => {
+    setWordList([...wordList, newWord]);
+  };
 
   return (
     <div className="App">
@@ -60,9 +65,7 @@ function App() {
           <button className="buttons list-button">
             View Current Word List
           </button>
-          <button className="buttons export-button">
-            Export as Text File
-          </button>
+          <button className="buttons export-button">Export as Text File</button>
         </div>
       </div>
       <div className="footer">
