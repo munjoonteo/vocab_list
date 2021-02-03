@@ -48,12 +48,11 @@ function App() {
 
   const createText = () => {
     let text = "expression; reading; meaning\n";
-    for (let word in wordList) {
+    for (let word of wordList) {
       let ankiCard =
         word.expression + "; " + word.reading + "; " + word.meaning + "\n";
       text = text + ankiCard;
     }
-
     return text;
   };
 
