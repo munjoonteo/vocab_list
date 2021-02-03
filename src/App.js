@@ -53,7 +53,17 @@ function App() {
         </div>
       </div>
       <div className="middle">
-        <Results results={results} />
+        <div className="left">
+          <Results results={results} />
+        </div>
+        <div className="right">
+          <button className="buttons list-button">
+            View Current Word List
+          </button>
+          <button className="buttons export-button">
+            Export as Text File
+          </button>
+        </div>
       </div>
       <div className="footer">
         Powered by the<a href="https://jisho.org/">Jisho API</a>

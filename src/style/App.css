@@ -45,7 +45,42 @@ a {
 }
 
 .middle {
+  display: flex;
+  justify-content: space-between;
   padding: 0vw 2vw 0vw;
+}
+
+.left {
+  width: 50vw;
+}
+
+.right {
+  height: 65vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  outline: none;
+  font-size: 24px;
+  font-weight: 600;
+  border-radius: 30px;
+  width: 22rem;
+  padding: 1.5vh;
+  margin: 2vh;
+  color: white;
+  border: none;
+}
+
+.list-button {
+  background-color: #098023;
+}
+
+.export-button {
+  background-color: #091580;
 }
 
 .footer {
