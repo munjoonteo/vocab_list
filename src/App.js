@@ -10,6 +10,8 @@ function App() {
   const [results, setResults] = useState(null);
   const [wordList, setWordList] = useState([]);
 
+  const filename = "export.txt";
+
   // Memoise getWords so that it is not recreated every single render
   const getWords = useCallback(async () => {
     if (word === "") return;
@@ -44,6 +46,34 @@ function App() {
     if (!wordList.includes(newWord)) setWordList([...wordList, newWord]);
   };
 
+  const createText = () => {
+    let text = "expression; reading; meaning\n";
+    for (let word in wordList) {
+      let ankiCard =
+        word.expression + "; " + word.reading + "; " + word.meaning + "\n";
+      text = text + ankiCard;
+    }
+
+    return text;
+  };
+
+  const download = () => {
+    console.log(wordList);
+    let element = document.createElement("a");
+    element.setAttribute(
+      "href",
+      "data:text/plain;charset=utf-8" + encodeURIComponent(createText())
+    );
+    element.setAttribute("download", filename);
+
+    element.style.display = "none";
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  };
+
   return (
     <div className="App">
       <div className="author">
@@ -65,7 +95,9 @@ function App() {
           <button className="buttons list-button">
             View Current Word List
           </button>
-          <button className="buttons export-button">Export as Text File</button>
+          <button className="buttons export-button" onClick={download}>
+            Export as Text File
+          </button>
         </div>
       </div>
       <div className="footer">
