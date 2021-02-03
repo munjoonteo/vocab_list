@@ -3,17 +3,15 @@ import "../style/Card.css";
 import Add from "../static/add.png";
 
 function Card({ word, onAdd }) {
+  let reading = !word.japanese[0].word ? null : word.japanese[0].reading;
+  let expression = !word.japanese[0].word
+    ? word.japanese[0].reading
+    : word.japanese[0].word;
   return (
     <div className="card">
       <div className="card-left">
-        <div className="reading">
-          {!word.japanese[0].word ? null : word.japanese[0].reading}
-        </div>
-        <div className="word">
-          {!word.japanese[0].word
-            ? word.japanese[0].reading
-            : word.japanese[0].word}
-        </div>
+        <div className="reading">{reading}</div>
+        <div className="word">{expression}</div>
         <div>
           {word.senses.map((sense, index) => (
             <div className="def" key={index}>
@@ -28,8 +26,8 @@ function Card({ word, onAdd }) {
           className="add-button"
           onClick={e =>
             onAdd({
-              expression: word.japanese[0].word,
-              reading: word.japanese[0].reading,
+              expression: expression,
+              reading: !reading ? "" : reading,
               meaning: word.senses[0].english_definitions.join("; "),
             })
           }

@@ -6,11 +6,20 @@ import Results from "./components/Results";
 import Pic from "./static/search.png";
 
 function App() {
+  const filename = "export.txt";
+
   const [word, setWord] = useState("");
   const [results, setResults] = useState(null);
   const [wordList, setWordList] = useState([]);
 
-  const filename = "export.txt";
+  const addToList = async newWord => {
+    if (!wordList.includes(newWord)) setWordList([...wordList, newWord]);
+  };
+
+  const removeFromList = async word => {
+    let index = wordList.indexOf(word);
+    wordList.splice(index, 1);
+  };
 
   // Memoise getWords so that it is not recreated every single render
   const getWords = useCallback(async () => {
@@ -41,10 +50,6 @@ function App() {
       document.removeEventListener("keydown", listener);
     };
   }, [getWords]);
-
-  const addToList = async newWord => {
-    if (!wordList.includes(newWord)) setWordList([...wordList, newWord]);
-  };
 
   const createText = () => {
     let text = "expression; reading; meaning\n";
