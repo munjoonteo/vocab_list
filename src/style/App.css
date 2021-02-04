@@ -26,6 +26,7 @@ a {
   margin: 2vw;
   background-color: white;
   user-select: none;
+  cursor: pointer;
 }
 
 .search-button {
@@ -73,14 +74,23 @@ a {
   margin: 2vh;
   color: white;
   border: none;
+  cursor: pointer;
 }
 
 .list-button {
   background-color: #098023;
 }
 
+.list-button:hover {
+  background-color: #07631b;
+}
+
 .export-button {
   background-color: #091580;
+}
+
+.export-button:hover {
+  background-color: #070f58;
 }
 
 .footer {
