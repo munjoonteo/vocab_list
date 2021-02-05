@@ -3,6 +3,7 @@ import axios from "axios";
 import "./style/App.css";
 import SearchBar from "./components/SearchBar";
 import Results from "./components/Results";
+import WordList from "./components/WordList";
 import Pic from "./static/search.png";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [word, setWord] = useState("");
   const [results, setResults] = useState(null);
   const [wordList, setWordList] = useState([]);
+  const [currPage, setCurrPage] = useState("results");
 
   const addToList = async newWord => {
     if (!wordList.includes(newWord)) setWordList([...wordList, newWord]);
@@ -21,6 +23,31 @@ function App() {
     wordList.splice(index, 1);
   };
 
+  const resultsPage = <Results results={results} onAdd={addToList} />;
+  const wordListPage = (
+    <WordList wordList={wordList} onRemove={removeFromList} />
+  );
+
+  const seeWordList = async () => {
+    setCurrPage("wordlist");
+  };
+
+  const seeResults = async () => {
+    setCurrPage("results");
+  };
+
+  const wordListButton = (
+    <button className="buttons list-button" onClick={seeWordList}>
+      View Current Word List
+    </button>
+  );
+
+  const resultsButton = (
+    <button className="buttons list-button" onClick={seeResults}>
+      Return to Results
+    </button>
+  );
+
   // Memoise getWords so that it is not recreated every single render
   const getWords = useCallback(async () => {
     if (word === "") return;
@@ -30,6 +57,7 @@ function App() {
       )
       .then(result => {
         setResults(result);
+        seeResults();
       })
       .catch(err => {
         console.log(err);
@@ -51,7 +79,9 @@ function App() {
     };
   }, [getWords]);
 
+  // Create text file contents
   const createText = () => {
+    if (wordList.length === 0) return "";
     let text = "expression; reading; meaning\n";
     for (let word of wordList) {
       let ankiCard =
@@ -63,9 +93,13 @@ function App() {
 
   const download = () => {
     let element = document.createElement("a");
+    let text = createText();
+
+    if (text === "") return;
+
     element.setAttribute(
       "href",
-      "data:text/plain;charset=utf-8," + encodeURIComponent(createText())
+      "data:text/plain;charset=utf-8," + encodeURIComponent(text)
     );
     element.setAttribute("download", filename);
 
@@ -92,12 +126,10 @@ function App() {
       </div>
       <div className="middle">
         <div className="left">
-          <Results results={results} onAdd={addToList} />
+          {currPage === "results" ? resultsPage : wordListPage}
         </div>
         <div className="right">
-          <button className="buttons list-button">
-            View Current Word List
-          </button>
+          {currPage === "results" ? wordListButton : resultsButton}
           <button className="buttons export-button" onClick={download}>
             Export as Text File
           </button>
