@@ -8,7 +8,7 @@ function WordListCard({ word, onRemove }) {
       <div className="card-left">
         <div className="reading">{word.reading}</div>
         <div className="word">{word.expression}</div>
-        <div>{word.meaning}</div>
+        <div className="def">{word.meaning}</div>
       </div>
       <div className="card-right">
         <div
