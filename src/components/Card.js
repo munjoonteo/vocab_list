@@ -27,12 +27,14 @@ function Card({ word, onAdd }) {
         <div
           className="add-button"
           onClick={e => {
-            onAdd({
-              expression: expression,
-              reading: !reading ? "" : reading,
-              meaning: word.senses[0].english_definitions.join("; "),
-            });
-            setClicked(true);
+            if (!clicked) {
+              onAdd({
+                expression: expression,
+                reading: !reading ? "" : reading,
+                meaning: word.senses[0].english_definitions.join("; "),
+              });
+              setClicked(true);
+            }
           }}
         >
           {clicked ? (

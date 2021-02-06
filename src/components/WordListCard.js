@@ -1,8 +1,10 @@
 import React from "react";
 import "../style/Card.css";
 import Minus from "../static/minus.png";
+import Tick from "../static/tick.png";
 
 function WordListCard({ word, onRemove }) {
+  const [clicked, setClicked] = React.useState(false);
   return (
     <div className="card">
       <div className="card-left">
@@ -13,15 +15,22 @@ function WordListCard({ word, onRemove }) {
       <div className="card-right">
         <div
           className="add-button"
-          onClick={e =>
-            onRemove({
-              expression: word.expression,
-              reading: word.reading,
-              meaning: word.meaning,
-            })
-          }
+          onClick={e => {
+            if (!clicked) {
+              onRemove({
+                expression: word.expression,
+                reading: word.reading,
+                meaning: word.meaning,
+              });
+              setClicked(true);
+            }
+          }}
         >
-          <img src={Minus} alt="" height="20px" width="20px" />
+          {clicked ? (
+            <img src={Tick} alt="" height="20px" width="20px" />
+          ) : (
+            <img src={Minus} alt="" height="20px" width="20px" />
+          )}
           <div className="add-text">Remove from List</div>
         </div>
       </div>
