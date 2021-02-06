@@ -20,7 +20,7 @@ function App() {
 
   const removeFromList = async word => {
     let index = wordList.indexOf(word);
-    wordList.splice(index, 1);
+    if (index >= 0) wordList.splice(index, 1);
   };
 
   const resultsPage = <Results results={results} onAdd={addToList} />;
