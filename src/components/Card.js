@@ -1,8 +1,10 @@
 import React from "react";
 import "../style/Card.css";
 import Add from "../static/add.png";
+import Tick from "../static/tick.png";
 
 function Card({ word, onAdd }) {
+  const [clicked, setClicked] = React.useState(false);
   let reading = !word.japanese[0].word ? null : word.japanese[0].reading;
   let expression = !word.japanese[0].word
     ? word.japanese[0].reading
@@ -24,15 +26,20 @@ function Card({ word, onAdd }) {
       <div className="card-right">
         <div
           className="add-button"
-          onClick={e =>
+          onClick={e => {
             onAdd({
               expression: expression,
               reading: !reading ? "" : reading,
               meaning: word.senses[0].english_definitions.join("; "),
-            })
-          }
+            });
+            setClicked(true);
+          }}
         >
-          <img src={Add} alt="" height="20px" width="20px" />
+          {clicked ? (
+            <img src={Tick} alt="" height="20px" width="20px" />
+          ) : (
+            <img src={Add} alt="" height="20px" width="20px" />
+          )}
           <div className="add-text">Add to List</div>
         </div>
       </div>
