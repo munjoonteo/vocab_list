@@ -114,7 +114,7 @@ function App() {
   return (
     <div className="App">
       <div className="author">
-        Made by<a href="https://github.com/munjoonteo">Mun Joon Teo</a>
+        Made by<a href="https://munjoonteo.netlify.app/">Mun Joon Teo</a>
       </div>
       <div className="title">Japanese Vocabulary List Creator</div>
       <div className="search">
