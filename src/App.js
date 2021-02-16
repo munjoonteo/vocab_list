@@ -52,9 +52,9 @@ function App() {
   const getWords = useCallback(async () => {
     if (word === "") return;
     return await axios
-      .get(
-        `https://cors-anywhere.herokuapp.com/https://jisho.org/api/v1/search/words?keyword=${word}`
-      )
+      .post(`http://localhost:5000/`, {
+        word: word,
+      })
       .then(result => {
         setResults(result);
         seeResults();
