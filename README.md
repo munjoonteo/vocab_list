@@ -4,10 +4,15 @@ This app allows you to look up a Japanese word, save it to a vocabulary list and
 
 I am trying to deploy the site to Heroku now but in the meantime, run the site like so:  
 
+First terminal:  
 ```
 cd server  
 npm start  
-cd ../client  
+```
+
+Second terminal:  
+```
+cd client  
 npm start  
 ```
 
