@@ -8,7 +8,7 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-app.post("/", (req, res) => {
+app.post("/*", (req, res) => {
   axios
     .get(`https://jisho.org/api/v1/search/words?keyword=${req.body.word}`)
     .then(response => res.status(200).send(response.data))
