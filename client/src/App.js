@@ -52,7 +52,7 @@ function App() {
   const getWords = useCallback(async () => {
     if (word === "") return;
     return await axios
-      .post(`http://localhost:5000/`, {
+      .post(`http://localhost:5000/word`, {
         word: word,
       })
       .then(result => {
