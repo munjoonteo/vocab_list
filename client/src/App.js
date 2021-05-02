@@ -1,10 +1,13 @@
 import { React, useState, useCallback, useEffect } from "react";
 import axios from "axios";
-import "./style/App.css";
+
 import SearchBar from "./components/SearchBar";
 import Results from "./components/Results";
 import WordList from "./components/WordList";
+
 import Pic from "./static/search.png";
+
+import "./style/App.css";
 
 function App() {
   const filename = "export.txt";
@@ -57,6 +60,7 @@ function App() {
       })
       .then(result => {
         setResults(result);
+        console.log(result);
         seeResults();
       })
       .catch(err => {

@@ -1,5 +1,7 @@
 import React from "react";
+
 import Card from "./Card";
+
 import "../style/Results.css";
 
 function Words({ results, onAdd }) {

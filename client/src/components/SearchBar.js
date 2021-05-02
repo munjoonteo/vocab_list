@@ -1,4 +1,5 @@
 import React from "react";
+
 import "../style/SearchBar.css";
 
 function SearchBar({ keyword, onChange }) {

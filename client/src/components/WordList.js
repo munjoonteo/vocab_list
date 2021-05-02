@@ -1,5 +1,7 @@
 import React from "react";
+
 import WordListCard from "./WordListCard";
+
 import "../style/Results.css";
 
 function WordList({ wordList, onRemove }) {

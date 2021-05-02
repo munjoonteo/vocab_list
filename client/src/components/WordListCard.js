@@ -1,7 +1,9 @@
 import React from "react";
-import "../style/Card.css";
+
 import Minus from "../static/minus.png";
 import Tick from "../static/tick.png";
+
+import "../style/Card.css";
 
 function WordListCard({ word, onRemove }) {
   const [clicked, setClicked] = React.useState(false);
