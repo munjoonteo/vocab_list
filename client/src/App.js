@@ -88,8 +88,8 @@ function App() {
     if (wordList.length === 0) return "";
     let text = "expression; reading; meaning\n";
     for (let word of wordList) {
-      let ankiCard =
-        word.expression + "; " + word.reading + "; " + word.meaning + "\n";
+      let entry = [word.expression, word.reading, word.meaning];
+      let ankiCard = `${entry.join('\\')}\n`
       text = text + ankiCard;
     }
     return text;
