@@ -85,11 +85,15 @@ function App() {
 
   // Create text file contents
   const createText = () => {
+    const DELIM = "\\";
+
     if (wordList.length === 0) return "";
-    let text = "expression; reading; meaning\n";
+
+    let text = `expression${DELIM}reading${DELIM}meaning\n`;
+
     for (let word of wordList) {
       let entry = [word.expression, word.reading, word.meaning];
-      let ankiCard = `${entry.join('\\')}\n`
+      let ankiCard = `${entry.join(DELIM)}\n`;
       text = text + ankiCard;
     }
     return text;
